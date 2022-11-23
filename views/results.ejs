@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body style="display:flex; flex-direction: column;">
+    <h1 style="margin-bottom: 2em;">Your Score Card</h1>
+    <table border="3">
+        <tr>
+            <th>Name:-</th>
+            <th>ID:-</th>
+            <th>Average:-</th>
+            <th>Grade:-</th>
+            <th>English:-</th>
+            <th>Maths:-</th>
+            <th>Computer Science:-</th>
+            <th>Hindi:-</th>
+            <th>Social Scinece:-</th>
+        </tr>
+        <% data.forEach(data => { %>
+                <tr>
+                    <td><%-data.name%></td>
+                    <td><%-data.id%></td>
+                    <td><%-data.average%></td>
+                    <td><%-data.grade%></td>
+                    <% data.numbers.forEach((num,idx) => { %>
+                        <td><%- num %></td>
+                    <% }) %>
+                </tr>
+        <% }) %>
+    </table>
+    <div>
+        <!-- <button style="width:6em; height:2em; margin-top:5em " >Add Student</button> -->
+        <form method="get" action="/redirect" >
+           <input type="submit" value="Add Student" style="width:6em; height:2em; margin-top:5em">
+        </form>
+    </div>
+
+</body>
+</html>
